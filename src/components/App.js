@@ -10,12 +10,9 @@ function App() {
             .then((data) => setDogImg(data.message));
     }, []);
 
-    return (
-        <div>
-            <p>{!dogImg ? 'Loading...' : null}</p>
-            <img src={dogImg} alt='A Random Dog'></img>
-        </div>
-    );
+    if (!dogImg) return <p>Loading...</p>;
+
+    return <img src={dogImg} alt='A Random Dog' />;
 }
 
 export default App;
